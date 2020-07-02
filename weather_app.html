@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Atlanta's Current Weather</h1>
+    <h2 id="weather">Loading</h2>
+    <script>
+        fetch(
+            "https://api.openweathermap.org/data/2.5/weather?q=Atlanta&appid=eee8bfcc1b10626eb9cc9d5901c5604e"
+        )
+            .then(response=>response.json())
+            .then(body =>{
+                document.getElementbyId("weather").innerHTML=body.main.temp + "°";
+            })
+            .catch(error => alert("Please add your api key to the fetch url"));
+    </script>
+</body>
+</html>
